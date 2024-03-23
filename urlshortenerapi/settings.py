@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'urlshortenerapi.wsgi.application'
+WSGI_APPLICATION = 'urlshortenerapi.wsgi.app'
 
 
 # Database

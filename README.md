@@ -15,5 +15,7 @@ pip install -r requirements.txt
 
 ## Paths
 
-- `/shortener/api/v1/shortner`: Get all the URLs
-- `/shortener/docs`: Shortener documentation
+- `/shortener/api/v1/shortener/`: Get all the URLs. response = `List[(id: string, url: string)]`
+- `/shortener/api/v1/shortener/`: Create URL. body = `(url: string)`
+- `/shortener/api/v1/shortener/`: Get URL by id. response = `(id: string, url: string)`
+- `/shortener/docs`: Documentation

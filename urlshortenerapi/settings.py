@@ -16,6 +16,7 @@ import os
 
 load_dotenv()
 
+MODE = os.environ.get("MODE")
 DATABASE_NAME = os.environ.get("DATABASE_NAME")
 DATABASE_HOST = os.environ.get("DATABASE_HOST")
 DATABASE_USER = os.environ.get("DATABASE_USER")
@@ -33,7 +34,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mlp(+y9lj)3zlam*tt#cc$(hyi(n)ex!fq3g9et)_f%&j-k-p('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = MODE == 'dev'
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
@@ -145,6 +146,14 @@ CORS_ALLOWED_ORIGINS = []
 
 # DOCS Rest Api
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
 }
 
